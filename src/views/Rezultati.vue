@@ -14,7 +14,10 @@
         <td>{{item[3]}}</td>
       </tr>
     </table>
+          <button v-on:click="povratak()" style="width: 80px;" class="pct-btn">Pocetna</button>
+
   </div>
+  
 </template>
 
 <script>
@@ -27,6 +30,13 @@ export default {
       row: [],
     };
   },
+  methods:{
+    povratak(){
+      return this.$router.replace({ name: "Pocetna" });
+
+    },
+  },
+  
   mounted() {
     axios
       .get("http://127.0.0.1:5000/rezultati")
@@ -38,6 +48,7 @@ export default {
         console.log("Doslo je do greske: ", e);
       });
   },
+  
 };
 </script>
 
@@ -67,5 +78,10 @@ export default {
   color: black;
 }
 
-
+.pct-btn{
+  margin-left: 1200px;
+  margin-top: 360px;
+  height: 30px;
+  background-color: blanchedalmond;
+}
 </style>
